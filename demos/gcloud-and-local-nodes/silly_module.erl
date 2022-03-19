@@ -1,12 +1,17 @@
 -module(silly_module).
--export([run/0, loop/1]).
+-export([start/0, loop/1]).
 
-run() ->
-  spawn(?MODULE, loop, ["Hello world"]).
+start() ->
+  spawn(?MODULE, loop, [1]).
 
-loop(Message) -> do_loop(1, Message).
+loop(N) ->
+  receive
+    stop ->
+      io:format("FINISH HIM...~n"),
+      ok
+  after 2000 ->
+          % io:format("Loop ~p | Hello Erlang!~n", [N]),
+          io:format("Loop ~p | Let's put a smile on that face :)~n", [N]),
+          ?MODULE:loop(N+1)
+  end.
 
-do_loop(N, Message) ->
-  io:format("Loop ~p // Message: ~p~n", [N, Message]),
-  timer:sleep(1200),
-  do_loop(N+1, Message).
