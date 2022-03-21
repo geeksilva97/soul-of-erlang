@@ -13,13 +13,13 @@ shell:
 	@erl -pa ebin/
 
 start_a:
-	@erl -name a@127.0.0.1 -config config/a -pa ebin
+	@erl -name a@127.0.0.1 -config config/a -pa ebin -eval 'application:start(ch_app)'
 
 start_b:
-	@erl -name b@127.0.0.1 -config config/b -pa ebin
+	@erl -name b@127.0.0.1 -config config/b -pa ebin -eval 'application:start(ch_app)'
 
 start_c:
-	@erl -name c@127.0.0.1 -config config/c -pa ebin
+	@erl -name c@127.0.0.1 -config config/c -pa ebin -eval 'application:start(ch_app)'
 run:
 	@erl -pa ebin/ deps/**/ebin/ -sname $(APP_NAME) -s $(APP_NAME) \
 	     -config priv/config/production
