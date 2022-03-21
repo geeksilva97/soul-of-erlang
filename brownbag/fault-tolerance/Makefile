@@ -9,6 +9,9 @@ compile: clear
 compile_test: compile
 	@erlc -pa ebin/ -o ebin/ test/*.erl
 
+shell:
+	@erl -pa ebin/
+
 run:
 	@erl -pa ebin/ deps/**/ebin/ -sname $(APP_NAME) -s $(APP_NAME) \
 	     -config priv/config/production
