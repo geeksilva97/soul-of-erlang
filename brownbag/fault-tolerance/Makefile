@@ -12,6 +12,14 @@ compile_test: compile
 shell:
 	@erl -pa ebin/
 
+start_a:
+	@erl -name a@127.0.0.1 -config config/a -pa ebin
+
+start_b:
+	@erl -name b@127.0.0.1 -config config/b -pa ebin
+
+start_c:
+	@erl -name c@127.0.0.1 -config config/c -pa ebin
 run:
 	@erl -pa ebin/ deps/**/ebin/ -sname $(APP_NAME) -s $(APP_NAME) \
 	     -config priv/config/production
