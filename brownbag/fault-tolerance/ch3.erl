@@ -33,4 +33,5 @@ handle_cast(decrement, State) ->
 handle_call(get, _From, State) ->
   {reply, State, State}.
 
-terminate(normal, _State) -> ok.
+terminate(normal, _State) -> ok;
+terminate(shutdown, _State) -> ok.
