@@ -6,7 +6,7 @@
 2. Meu nome é Edigleysson Silva e hoje eu venho falar um pouco sobre Erlang.
 3. Vamos falar um pouco do entorno da linguagem, da BEAM (que é a VM do Erlang), da OTP e da sintaxe básica da linguagem Erlang.
 
-## What is Erlang?
+## O que é Erlang/OTP?
 1. O Erlang em si é uma linguagem de programação de propósito geral. É uma linguagem funcional em sua essência e faz uso de conceitos como imutabilidade.
 2. OTP (Open Telecom Platform) é o que chamamos de _runtime system_, ela possui uma série componentes que usamos na construção de aplicações Erlang.
 3. É na OTP que temos componentes como:
@@ -57,13 +57,14 @@
 - Como vimos toda expessão Erlang deve terminar com um ponto final (.). Tal qual terminamos uma frase.
 - Outros símbolos que fazemos uso são vírgulas (,) e ponto e vírgula (;).
 - Usamos vírgula para separar expresões dentro de uma função. Exemplo:
-```erl
-MyFun = fun() ->
-  io:format("Hello~n"), % there is another expression
-  timer:sleep(1000), % there is another expression
-  io:format("CodeMiner42~n") % nothing here the period goes in the most external block
-end. % the period (.) goes here
-```
+
+    ```erl
+    MyFun = fun() ->
+    io:format("Hello~n"), % there is another expression
+    timer:sleep(1000), % there is another expression
+    io:format("CodeMiner42~n") % nothing here the period goes in the most external block
+    end. % the period (.) goes here
+    ```
 - Usamos ponto e vírgula para separar clausulas, cenários. Como na estrutura *case* por exemplo:
 
     ```erl
@@ -99,7 +100,7 @@ end. % the period (.) goes here
         io:format("Now I'm prepared to die.")
     end
   end).
-```
+  ```
 
 - Os processos não compartilham estado (isso nunca é bom) e só se comunicam por mensagens.
 - No processo que iniciamos acima temos a instrução receive que fica aguardando por mensagens que chegam.
