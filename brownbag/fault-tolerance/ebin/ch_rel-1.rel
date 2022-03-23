@@ -1,0 +1,8 @@
+{release,
+ {"ch_rel", "A"},
+ {erts, "5.3"},
+ [{kernel, "8.1.2"},
+  {stdlib, "3.16.1"},
+  {sasl, "4.1"},
+  {ch_app, "1"}]
+}.
